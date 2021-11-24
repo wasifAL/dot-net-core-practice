@@ -32,11 +32,11 @@ namespace dot_net_core_practice_demo.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public IActionResult UpdateTask(TaskInfo taskinfo)
+        public IActionResult UpdateTask (Guid id, TaskInfo taskinfo)
         {
             if (ModelState.IsValid)
             {
-                //taskinfo.TaskId = Guid.NewGuid();
+                
                 _taskService.UpdateTask(taskinfo);
                 return Ok();
             }

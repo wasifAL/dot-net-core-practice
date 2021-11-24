@@ -51,8 +51,8 @@ namespace dot_net_core_practice_demo.Service
 
         public void UpdateTask(TaskInfo task)
         {
-            TaskInfo _temp = GetTaskbyId(task.TaskId);
-            _context.Update(_temp);
+          //  TaskInfo _temp = GetTaskbyId(task.TaskId);
+            _context.Update(task);
             _context.SaveChanges();
         }
     }
