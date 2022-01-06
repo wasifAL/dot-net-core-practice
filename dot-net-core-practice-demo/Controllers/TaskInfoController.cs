@@ -7,7 +7,7 @@ using dot_net_core_practice_demo.Models;
 namespace dot_net_core_practice_demo.Controllers
 {
     [ApiController]
-    [Route("taskinfo")]
+    [Route("taskinfo/")]
     public class TaskInfoController : ControllerBase
     {
         private readonly ITaskInfoService _taskService;
@@ -18,7 +18,8 @@ namespace dot_net_core_practice_demo.Controllers
 
 
         [HttpPost]
-        [Route("[action]")]
+        //[Route("")]
+        [Route("{id:int}")]
         public IActionResult SaveTask(TaskInfo taskinfo)
         {
             if (ModelState.IsValid)
@@ -30,8 +31,9 @@ namespace dot_net_core_practice_demo.Controllers
             return BadRequest();
         }
 
-        [HttpPost]
-        [Route("[action]")]
+        [HttpPatch]
+        //[Route("")]
+        [Route("{id:int}")]
         public IActionResult UpdateTask (Guid id, TaskInfo taskinfo)
         {
             if (ModelState.IsValid)
@@ -44,7 +46,8 @@ namespace dot_net_core_practice_demo.Controllers
         }
 
         [HttpGet]
-        [Route("[action]")]
+        //[Route("[action]")]
+        [Route("")]
         public IActionResult GetTask()
         {
             try
@@ -60,7 +63,7 @@ namespace dot_net_core_practice_demo.Controllers
         }
 
         [HttpGet]
-        [Route("[action]")]
+        [Route("{id:int}")]
         public IActionResult GetTaskbyID(Guid id)
         {
             try
